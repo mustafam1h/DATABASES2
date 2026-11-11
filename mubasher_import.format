@@ -1,0 +1,5 @@
+$FORMAT Ticker, Date_YMD, Time, Open, High, Low, Close, Volume
+$SEPARATOR ,
+$AUTOADD 1
+$OVERWRITE 1
+$NOQUOTES 1
