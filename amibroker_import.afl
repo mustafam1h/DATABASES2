@@ -1,0 +1,29 @@
+// Save file as ANSI in AmiBroker Formula Editor
+// Set this to your folder path containing the downloaded CSV and format files
+dataFolder = "C:\\Users\\...user\\..Download";  // عدل ليناسب المكان الذي تحتفظ بيه بالملفات بعد تنزيلها
+
+// ============================================================================
+// 1. TRIGGER: IMPORT INTRADAY
+// ============================================================================
+if (ParamTrigger("Import Intra", "Import Intra"))
+{
+    csvIntra = dataFolder + "mubasher_data.csv";
+    fmtIntra = dataFolder + "mubasher_import.format";
+
+    AB = CreateObject("Broker.Application");
+    AB.Import(0, csvIntra, fmtIntra);
+    AB.RefreshAll();
+}
+
+// ============================================================================
+// 2. TRIGGER: IMPORT DAILY HISTORY & INDICES
+// ============================================================================
+if (ParamTrigger("Import History", "Import History"))
+{
+    csvHist = dataFolder + "mubasher_history.csv";
+    fmtHist = dataFolder + "mubasher_history.format";
+
+    AB = CreateObject("Broker.Application");
+    AB.Import(0, csvHist, fmtHist);
+    AB.RefreshAll();
+}
