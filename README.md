@@ -105,3 +105,31 @@ AddTextColumn("اضغط على الزر المطلوب من نافذة Parameter
   - اذهب إلى: File ⬅️ Database Settings.
   - تأكد أن Base time interval مضبوط على 1 Minute.
 - مسار المجلد: إذا قمت بتغيير مجلد حفظ الملفات، تأكد من تعديل السطر الخاص بـ tempFolder في كود الـ AFL ليتطابق مع المسار الجديد لديك مع استخدام شرطة مائلة مزدوجة \\.
+
+
+
+
+## 🔴 ثانياً: طريقة الاستيراد إلى برنامج MetaStock
+
+يتم تحويل البيانات إلى صيغة MetaStock عبر أداة **The DownLoader** المرفقة مع البرنامج باتباع الخطوات التالية:
+
+### خطوات التحويل عبر The DownLoader:
+1. افتح برنامج **The DownLoader**.
+2. من القائمة العلوية اختر **Tools** ⬅️ ثم اضغط **Convert**.
+3. في نافذة التحويل (Conversion Options):
+   - **Source (المصدر):**
+     - **File Type:** اختر `ASCII Text`.
+     - **Folder:** حدد المسار الذي وضعت به الملفات (مثال: `C:\MarketData\`).
+     - **File Name:** اختر ملف `mubasher_history.csv` أو `mubasher_data.csv`.
+   - **Destination (الهدف):**
+     - **File Type:** اختر `MetaStock`.
+     - **Folder:** حدد مجلد حفظ داتا الميتستوك على جهازك (مثال: `C:\MetaStock Data\`).
+4. اضغط على زر **Options**:
+   - تحت تبويب **Source**:
+     - **Field Delimiter:** اختر `Comma` (,).
+     - **Date Order:** اختر `Year/Month/Day` (Y-M-D).
+     - **Fields:** تأكد من ترتيب الحقول كالتالي:
+       - لليومي: `Ticker, Date, Open, High, Low, Close, Volume`.
+       - للحظي: `Ticker, Date, Time, Open, High, Low, Close, Volume`.
+5. اضغط **OK** ثم اضغط **OK** مرة أخرى لبدء التحويل.
+6. افتح برنامج MetaStock وستجد جميع الأسهم والمؤشرات تم تحديثها وجاهزة للفتح.
